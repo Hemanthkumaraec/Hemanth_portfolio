@@ -1,0 +1,7 @@
+{
+  "name": "Hemanth_portfolio",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
