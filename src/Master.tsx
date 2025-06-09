@@ -15,7 +15,7 @@ import {
 import Header from './components/pages/Header/Header'; // Your header component
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, setCurrentPage, setMenuOpen } from './store/store'; // Import Redux types and actions
-
+import './master.css'
 // Import your page components
 import AboutPage from './components/pages/about/about';
 import ProjectPage from './components/pages/projects/project';
@@ -55,10 +55,10 @@ const Master: React.FC = () => {
        
         <IonRouterOutlet id="main-content">
           <Header /> 
-          <IonContent>
-            {renderPage()}
+           <IonContent className="master-page-content">
+        {renderPage()}
 
-          </IonContent>
+      </IonContent>
           
         </IonRouterOutlet>
       </IonSplitPane>

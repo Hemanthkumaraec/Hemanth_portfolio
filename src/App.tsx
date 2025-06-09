@@ -1,7 +1,11 @@
 import React from 'react';
 import { setupIonicReact } from '@ionic/react';
 import { Provider } from 'react-redux';
-import { store } from './store/store'; // Your Redux store
+import { store } from './store/store';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import Master from './Master';
+import AdminDashboard from './components/admin/admindashboard';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -21,13 +25,17 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import Master from './Master';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <Provider store={store}>
-    <Master />
+    <Router>
+      <Switch>
+        <Route path="/admin" component={AdminDashboard} />
+        <Route path="/" component={Master} />
+      </Switch>
+    </Router>
   </Provider>
 );
 

@@ -74,10 +74,7 @@ const HeroPage: React.FC = () => {
           <span className="hero-quote-author">— Former Team Lead</span>
         </blockquote>
       </div>
-      {/* Scroll Indicator */}
-      <div className="scroll-indicator animate-fade-in-up delay-6">
-        <IonIcon icon={arrowDownOutline} />
-      </div>
+      
     </div>
   );
 };

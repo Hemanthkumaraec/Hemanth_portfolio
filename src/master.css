@@ -1,0 +1,5 @@
+.master-page-content {
+  background: linear-gradient(90deg, #f8fafd 80%, #e9edf2 100%);
+  --padding-top: 60px; 
+  position: relative; 
+}

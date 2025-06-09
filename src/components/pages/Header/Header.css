@@ -1,244 +1,126 @@
-.custom-header{
-  --background:transparent;
+.simple-header {
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  z-index: 1000;
-  /* IonToolbar will manage its own layout and padding within the header. */
-  /* No transition needed here if visual changes are on toolbar */
+  z-index: 100;
+  background: linear-gradient(90deg, #f8fafd 80%, #e9edf2 100%);
+  box-shadow: 0 4px 24px rgba(79, 140, 255, 0.10);
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  transition: box-shadow 0.2s, background 0.2s;
+  padding: 0;
 }
 
+.simple-header.scrolled {
+  box-shadow: 0 8px 32px rgba(79, 140, 255, 0.18);
+  background: linear-gradient(90deg, #e9edf2 60%, #f8fafd 100%);
+}
 
-.ion-title {
-  font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #22223b; /* Base color for title elements */
+.simple-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 68px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  padding: 0 2.5rem;
 }
 
-.header-logo {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #4f8cff 40%, #a084ee 100%);
+.simple-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-right: 0.5rem;
-  box-shadow: 0 2px 8px rgba(79,140,255,0.15);
-}
-
-.ion-buttons.ion-hide-md-down .ion-button {
-  position: relative;
-  font-family: 'Poppins', Arial, sans-serif;
-  font-weight: 500;
-  color: #22223b;
-  margin: 0 0.25rem;
-  transition: color 0.2s;
-}
-
-.ion-buttons.ion-hide-md-down .ion-button::after {
-  content: '';
-  display: block;
-  height: 2px;
-  width: 0;
-  background: linear-gradient(90deg, #4f8cff, #a084ee);
-  transition: width 0.3s;
-  border-radius: 2px;
-  margin-top: 2px;
-}
-
-.ion-buttons.ion-hide-md-down .ion-button:hover,
-.ion-buttons.ion-hide-md-down .ion-button:focus {
+  font-size: 1.7rem;
+  font-weight: 800;
   color: #4f8cff;
-}
-
-.ion-buttons.ion-hide-md-down .ion-button:hover::after,
-.ion-buttons.ion-hide-md-down .ion-button:focus::after {
-  width: 100%;
-}
-
-.custom-toolbar {
-  --background:none;
-  background-color: transparent; /* Explicitly transparent initially */
-  backdrop-filter: blur(12px);
-  box-shadow: 0 6px 32px rgba(79,140,255,0.10);
-  border-radius: 0 0 22px 22px;
-  min-height: 72px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  padding: 0 1.5rem;
-}
-
-.custom-header.scrolled .custom-toolbar {
-  background-color: rgba(255, 255, 255, 0.85); /* Light frosted glass effect */
-  box-shadow: 0 8px 32px rgba(79,140,255,0.15); /* Slightly more pronounced shadow */
-}
-
-.custom-title {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
-  /* Override generic .ion-title styles like letter-spacing for this specific title */
-  letter-spacing: normal; 
-}
-
-.custom-logo {
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #4f8cff 60%, #a084ee 100%);
+  border-radius: 50%;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #4f8cff 40%, #a084ee 100%);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 12px rgba(79,140,255,0.18);
-  margin-right: 0.5rem;
-  animation: popIn 0.8s cubic-bezier(.68,-0.55,.27,1.55);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 12px rgba(160,132,238,0.10);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid #fff;
+}
+.simple-logo:focus, .simple-logo:hover {
+  background: linear-gradient(135deg, #a084ee 40%, #4f8cff 100%);
+  /* box-shadow: 0 4px 24px rgba(160,132,238,0.18); */
+  transform: scale(1.07) rotate(-2deg);
 }
 
-.custom-logo:hover {
-  transform: scale(1.05) translateY(-2px); /* Subtle lift and scale effect */
-  box-shadow: 0 6px 18px rgba(79,140,255,0.22);
-}
-
-@keyframes popIn {
-  0% { transform: scale(0.7); opacity: 0; }
-  80% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); }
-}
-
-.custom-logo-initial {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: 1px;
+.simple-logo-initial {
   font-family: 'Montserrat', Arial, sans-serif;
-}
-
-.custom-title-text {
-  display: flex;
-  flex-direction: column;
-  font-size: 1.2rem; /* Base font size for "Hemanth Portfolio" on larger screens */
-  line-height: 1.1;
-  letter-spacing: 0.5px; /* Adjusted for better readability compared to generic 2px */
-}
-
-.custom-title-highlight {
-  color: #4f8cff;
-  font-weight: 700;
-  margin-left: 0.25rem;
-}
-
-.custom-title-sub {
-  font-size: 0.85rem;
-  color: #a084ee;
-  font-weight: 500;
+  font-weight: 900;
+  color: #fff;
+  font-size: 1.4rem;
   letter-spacing: 1px;
-  margin-top: 2px;
 }
 
-.custom-nav {
-  gap: 0.5rem;
+.simple-nav {
+  display: flex;
+  gap: 2.2rem;
 }
 
-.custom-nav-btn {
-  position: relative;
-  font-family: 'Poppins', Arial, sans-serif;
-  font-weight: 500;
+.simple-nav-btn {
+  background: none;
+  border: none;
   color: #22223b;
-  margin: 0 0.25rem;
-  background: transparent !important;
-  border-radius: 8px;
-  transition: color 0.2s, background 0.2s;
-  padding: 0.5rem 1rem;
+  font-size: 1.13rem;
+  font-family: inherit;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.18s;
+  outline: none;
+  position: relative;
+  letter-spacing: 0.5px;
+  background-clip: padding-box;
 }
-
-.custom-nav-btn::after {
+.simple-nav-btn::after {
   content: '';
   display: block;
-  height: 2.5px;
+  height: 3px;
   width: 0;
   background: linear-gradient(90deg, #4f8cff, #a084ee);
-  transition: width 0.3s;
   border-radius: 2px;
-  margin-top: 2px;
+  transition: width 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+  margin-top: 5px;
 }
-
-.custom-nav-btn:hover,
-.custom-nav-btn:focus {
+.simple-nav-btn:hover,
+.simple-nav-btn:focus {
   color: #4f8cff;
-  background: rgba(160,132,238,0.08);
+  background: rgba(160,132,238,0.07);
 }
-
-.custom-nav-btn:hover::after,
-.custom-nav-btn:focus::after {
+.simple-nav-btn:hover::after,
+.simple-nav-btn:focus::after,
+.simple-nav-btn.active::after {
   width: 100%;
 }
-
-.custom-nav-btn.active {
-  color: #4f8cff; /* Match hover text color */
-  background: rgba(79, 140, 255, 0.1); /* Slightly more pronounced background than hover */
-}
-
-.custom-nav-btn.active::after {
-  width: 100%; /* Keep the underline active */
-}
-
-.custom-menu-btn {
-  --color: #4f8cff;
-}
-
-@media screen and (max-width:1200px) {
-    .custom-toolbar {
-        padding: 0 1rem;
-    }
-    
-}
-
-@media (min-width: 901px) {
-  .custom-menu-btn {
-    display: none !important;
-  }
-  .custom-nav {
-    display: flex !important;
-  }
+.simple-nav-btn.active {
+  color: #a084ee;
+  font-weight: 700;
+  background: rgba(160,132,238,0.10);
 }
 
 @media (max-width: 900px) {
-  .custom-title-text {
-    /* Overrides base 1.2rem for smaller screens */
-    font-size: 1rem;
+  .simple-header-content {
+    padding: 0 1rem;
+    height: 56px;
   }
-  .custom-logo {
+  .simple-logo {
     width: 36px;
     height: 36px;
+    font-size: 1.1rem;
   }
-  .custom-logo-initial {
-    font-size: 1.3rem;
+  .simple-nav {
+    gap: 1rem;
   }
-  .custom-menu-btn {
-    display: inline-flex !important;
-  }
-  .custom-nav {
-    display: none !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .custom-title-text {
-    /* Further refinement for very small screens */
-    font-size: 0.9rem;
-  }
-  .custom-title-sub {
-    font-size: 0.7rem;
+  .simple-nav-btn {
+    font-size: 1rem;
+    padding: 0.2rem 0.6rem;
   }
 }
