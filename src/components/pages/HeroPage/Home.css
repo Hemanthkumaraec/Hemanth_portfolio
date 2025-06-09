@@ -1,0 +1,214 @@
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full viewport height */
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Important for background shapes */
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+  color: #2c3e50; /* Dark grey for text */
+  font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+}
+
+.hero-content {
+  z-index: 2; /* Above background shapes */
+  max-width: 800px;
+}
+
+.hero-greeting {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 500;
+  color: #4f8cff; /* Primary accent color from your header */
+  margin-bottom: 0.25rem;
+}
+
+.hero-name {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  color: #22223b; /* Darker color from your header title */
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.hero-title {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 500;
+  color: #34495e; /* Slightly lighter dark grey */
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.hero-title-amp {
+  color: #a084ee; /* Secondary accent color from your header */
+  font-style: italic;
+  font-weight: 600;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: #7f8c8d; /* Medium grey for readability */
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.hero-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.hero-cta-primary,
+.hero-cta-secondary {
+  --border-radius: 25px; /* Rounded buttons */
+  font-weight: 600;
+  text-transform: none; /* Keep casing as is */
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  padding: 0.8rem 1.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.hero-cta-primary {
+  --background: linear-gradient(135deg, #4f8cff, #a084ee);
+  --background-hover: linear-gradient(135deg, #3a78e8, #8c6fe0);
+  --color: #fff;
+  box-shadow: 0 4px 15px rgba(79, 140, 255, 0.3);
+}
+
+.hero-cta-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(79, 140, 255, 0.4);
+}
+
+.hero-cta-secondary {
+  --color: #4f8cff;
+  --border-color: #4f8cff;
+  --border-width: 2px;
+  --background-hover: rgba(79, 140, 255, 0.1);
+}
+
+.hero-cta-secondary:hover {
+  transform: translateY(-3px);
+  --border-color: #3a78e8;
+  --color: #3a78e8;
+}
+
+/* --- Animations --- */
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered Delays */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1s; }
+.delay-6 { animation-delay: 1.2s; } /* For optional visual */
+
+/* Optional: Pop-in animation for a visual element */
+.animate-pop-in {
+  opacity: 0;
+  transform: scale(0.5);
+  animation: popIn 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Background Shapes (Subtle WOW) --- */
+.hero-background-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 20s infinite linear;
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: #a0c4ff; /* Light blue */
+  top: 10%;
+  left: 5%;
+  animation-duration: 25s;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  background: #b794f4; /* Light purple */
+  bottom: 15%;
+  right: 10%;
+  animation-duration: 30s;
+  animation-delay: -5s; /* Start at a different point in the animation cycle */
+}
+
+.shape-3 {
+  width: 150px;
+  height: 150px;
+  background: #90e0ef; /* Light cyan */
+  top: 50%;
+  left: 40%;
+  transform: translateY(-50%);
+  animation-duration: 20s;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  25% { transform: translateY(-20px) translateX(15px) rotate(45deg); }
+  50% { transform: translateY(10px) translateX(-10px) rotate(90deg); }
+  75% { transform: translateY(-15px) translateX(20px) rotate(135deg); }
+  100% { transform: translateY(0px) translateX(0px) rotate(180deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-name {
+    letter-spacing: 0;
+  }
+  .hero-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    width: 100%;
+    max-width: 300px; /* Prevent buttons from becoming too wide */
+  }
+  .shape-1 { width: 200px; height: 200px; }
+  .shape-2 { width: 150px; height: 150px; }
+  .shape-3 { display: none; } /* Hide one shape on smaller screens for less clutter */
+}
