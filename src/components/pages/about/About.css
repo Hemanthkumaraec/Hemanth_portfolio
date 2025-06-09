@@ -1,0 +1,234 @@
+.about-page-container {
+ margin-top: 5%;
+  color: #22223b;
+  font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+  overflow-x: hidden;
+ 
+}
+
+.about-title {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #4f8cff;
+  letter-spacing: 1px;
+}
+
+.about-tagline {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: #4f8cff;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+.about-page-container section {
+  margin-bottom: 3rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(160,132,238,0.07);
+  padding: 2rem 1.5rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.about-page-container section.animate-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-page-container h2 {
+  color: #22223b;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.about-page-container p {
+  line-height: 1.7;
+  color: #555;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+}
+
+/* Animation class applied by Intersection Observer */
+.animate-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-in-view.delay-1 { transition-delay: 0.1s; }
+.animate-in-view.delay-2 { transition-delay: 0.2s; }
+.animate-in-view.delay-3 { transition-delay: 0.3s; }
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.skill-item {
+  background: #f8fafd;
+  padding: 1.2rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(79, 140, 255, 0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(79, 140, 255, 0.12);
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+  font-size: 1.08rem;
+  color: #333;
+  gap: 0.7rem;
+}
+
+.skill-icon {
+  font-size: 1.5rem;
+  color: #4f8cff;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e9edf2;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 0.3rem;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f8cff, #a084ee);
+  border-radius: 5px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Call to Action Section */
+.about-cta {
+  text-align: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+  padding: 2.5rem 1.5rem;
+  border-radius: 15px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 24px rgba(160,132,238,0.07);
+}
+
+.about-cta h2 {
+  color: #2c3e50;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  border-bottom: none;
+  display: block;
+}
+
+.about-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cta-button-primary,
+.cta-button-secondary,
+.cta-button-resume {
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: none;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  padding: 0.8rem 1.8rem;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.2s, color 0.2s;
+  letter-spacing: 0.5px;
+  min-width: 160px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+/* Primary Button */
+.cta-button-primary {
+  background: linear-gradient(135deg, #4f8cff, #a084ee);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(79, 140, 255, 0.2);
+}
+.cta-button-primary:hover {
+  background: linear-gradient(135deg, #3a78e8, #8c6fe0);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(79, 140, 255, 0.3);
+}
+
+/* Secondary Button */
+.cta-button-secondary {
+  background: #fff;
+  color: #4f8cff;
+  border: 2px solid #4f8cff;
+}
+.cta-button-secondary:hover {
+  background: rgba(79, 140, 255, 0.08);
+  color: #3a78e8;
+  transform: translateY(-3px);
+  border-color: #3a78e8;
+}
+
+/* Resume Button */
+.cta-button-resume {
+  background: #fff;
+  color: #4f8cff;
+  border: 2px solid #4f8cff;
+}
+.cta-button-resume:hover {
+  background: #4f8cff;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(79,140,255,0.15);
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-page-container {
+    padding: 2rem 0.5rem;
+  }
+  .about-page-container section {
+    padding: 1.2rem 0.5rem;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .cta-button-primary,
+  .cta-button-secondary,
+  .cta-button-resume {
+    width: 100%;
+    max-width: 300px;
+  }
+}

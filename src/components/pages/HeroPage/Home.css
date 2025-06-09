@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh; /* Full viewport height */
-  padding: 2rem;
+  margin-top: 5%;
+  padding-top: 2rem;
   text-align: center;
   position: relative;
   overflow: hidden; /* Important for background shapes */
@@ -77,13 +78,25 @@
 }
 
 .hero-cta-primary {
-  --background: linear-gradient(135deg, #4f8cff, #a084ee);
-  --background-hover: linear-gradient(135deg, #3a78e8, #8c6fe0);
-  --color: #fff;
+  background: linear-gradient(135deg, #4f8cff, #a084ee);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: none;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  padding: 0.8rem 1.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.2s;
+  letter-spacing: 0.5px;
   box-shadow: 0 4px 15px rgba(79, 140, 255, 0.3);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .hero-cta-primary:hover {
+  background: linear-gradient(135deg, #3a78e8, #8c6fe0);
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 6px 20px rgba(79, 140, 255, 0.4);
 }
@@ -99,6 +112,130 @@
   transform: translateY(-3px);
   --border-color: #3a78e8;
   --color: #3a78e8;
+}
+
+/* Profile Image */
+.hero-profile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.hero-profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 24px rgba(79,140,255,0.18);
+  background: #e9edf2;
+  transition: transform 0.3s;
+}
+.hero-profile img:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+/* About Me Blurb */
+.hero-about {
+  font-size: 1.05rem;
+  color: #4f8cff;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+/* Tech Stack Badges */
+.hero-tech {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.tech-badge {
+  background: linear-gradient(90deg, #4f8cff 60%, #a084ee 100%);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(160,132,238,0.10);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+/* Resume Button */
+.hero-resume-btn {
+  display: inline-block;
+  background: #fff;
+  height: auto;
+  color: #4f8cff;
+  border: 2px solid #4f8cff;
+  border-radius: 25px;
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  margin-left: 0.5rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(160,132,238,0.10);
+}
+.hero-resume-btn:hover {
+  background: #4f8cff;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(79,140,255,0.18);
+}
+
+/* Social Icons */
+.hero-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 1.5rem 0 0.5rem 0;
+}
+.hero-socials a {
+  color: #4f8cff;
+  font-size: 2rem;
+  transition: color 0.2s, transform 0.2s;
+}
+.hero-socials a:hover {
+  color: #a084ee;
+  transform: translateY(-4px) scale(1.1);
+}
+
+/* Testimonial */
+.hero-quote {
+  margin: 2rem auto 0 auto;
+  max-width: 480px;
+  font-style: italic;
+  color: #7f8c8d;
+  background: rgba(160,132,238,0.07);
+  border-left: 4px solid #a084ee;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1.05rem;
+}
+.hero-quote-author {
+  display: block;
+  margin-top: 0.5rem;
+  color: #4f8cff;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 0.95rem;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  color: #a084ee;
+  font-size: 2.5rem;
+  opacity: 0.7;
+  animation: bounce 1.5s infinite;
+  z-index: 3;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(12px); }
 }
 
 /* --- Animations --- */

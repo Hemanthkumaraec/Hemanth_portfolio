@@ -1,0 +1,150 @@
+.projects-page-container {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+  color: #333;
+  overflow-x: hidden; /* Prevent horizontal scroll from animations */
+}
+
+.projects-title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  color: #22223b; /* Consistent with header */
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.projects-intro {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: #4f8cff; /* Primary accent */
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+/* Initial animation for title and intro */
+.animate-on-load {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+.animate-on-load.delay-1 { animation-delay: 0.2s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  --background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(79, 140, 255, 0.08);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Ensures image corners are rounded if image is first child */
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(79, 140, 255, 0.15);
+}
+
+.project-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #e0e0e0; /* Subtle separator */
+}
+
+.project-card ion-card-header {
+  padding-bottom: 0.5rem;
+}
+
+.project-card ion-card-subtitle {
+  color: #a084ee; /* Secondary accent */
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.project-card ion-card-title {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.project-card ion-card-content {
+  flex-grow: 1; /* Allows content to fill space and push links to bottom */
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5rem;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Pushes tech and links down */
+}
+
+.project-technologies {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-technologies ion-chip {
+  font-size: 0.8rem;
+  --background: rgba(79, 140, 255, 0.08);
+  --color: #4f8cff;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto; /* Pushes links to the bottom of the card content */
+  flex-wrap: wrap;
+}
+
+.project-links ion-button {
+  --border-radius: 20px;
+  font-weight: 500;
+  text-transform: none;
+  flex-grow: 1; /* Allows buttons to share space */
+}
+
+/* Animation for cards */
+.project-card-animate {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.project-card-animate.animate-in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered animation delays for cards */
+.project-card-animate.delay-2 { transition-delay: 0.1s; }
+.project-card-animate.delay-3 { transition-delay: 0.2s; }
+.project-card-animate.delay-4 { transition-delay: 0.3s; } /* Corresponds to (index % 3) + 2 */
+
+@media (max-width: 768px) {
+  .projects-page-container {
+    padding: 3rem 1rem;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+  }
+}
