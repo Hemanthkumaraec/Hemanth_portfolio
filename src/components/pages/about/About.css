@@ -4,6 +4,7 @@
   color: #22223b;
   font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
   overflow-x: hidden;
+  min-height: 100vh; ;
  
 }
 

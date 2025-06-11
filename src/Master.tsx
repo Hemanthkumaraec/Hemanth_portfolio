@@ -21,6 +21,7 @@ import AboutPage from './components/pages/about/about';
 import ProjectPage from './components/pages/projects/project';
 import ContactPage from './components/pages/contact/contact';
 import HeroPage from './components/pages/HeroPage/Home';
+import Footer from './components/pages/footer/footer';
 
 
 const Master: React.FC = () => {
@@ -57,7 +58,7 @@ const Master: React.FC = () => {
           <Header /> 
            <IonContent className="master-page-content">
         {renderPage()}
-
+          <Footer />
       </IonContent>
           
         </IonRouterOutlet>
