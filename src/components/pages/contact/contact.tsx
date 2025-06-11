@@ -24,8 +24,8 @@ const contactMethods: ContactMethod[] = [
     id: 'linkedin',
     name: 'LinkedIn',
     icon: logoLinkedin,
-    value: 'hemanthk-dev',
-    href: 'https://www.linkedin.com/in/hemanthk-dev/',
+    value: 'Hemanthkumar G',
+    href: 'https://www.linkedin.com/in/hemanth-g-kumar',
     ariaLabel: "View Hemanth Kumar's LinkedIn profile",
   },
   {
@@ -33,17 +33,10 @@ const contactMethods: ContactMethod[] = [
     name: 'GitHub',
     icon: logoGithub,
     value: 'HemanthKumar-Git', // Your GitHub username
-    href: 'https://github.com/HemanthKumar-Git', // Your GitHub profile link
+    href: 'hhttps://github.com/Hemanthkumaraec', // Your GitHub profile link
     ariaLabel: "View Hemanth Kumar's GitHub profile",
   },
-  {
-    id: 'twitter',
-    name: 'Twitter (X)',
-    icon: logoTwitter,
-    value: '@hemanthk_dev', // Your Twitter handle
-    href: 'https://twitter.com/hemanthk_dev', // Your Twitter profile link
-    ariaLabel: "View Hemanth Kumar's Twitter profile",
-  },
+ 
 ];
 
 const ContactPage: React.FC = () => {

@@ -91,5 +91,38 @@ export const saveAboutData = async (data: AboutData): Promise<void> => {
   const aboutRef = ref(db, 'aboutContent');
   await set(aboutRef, data);
 };
+export interface Project {
+  id?: string;
+  title: string;
+  subtitle: string;
+  imageUrl?: string;
+  description: string;
+  technologies: string[];
+  liveLink?: string;
+  repoLink?: string;
+}
 
+// 🟢 GET all projects with ID
+export const getProjects = async (): Promise<Project[]> => {
+  const projectsRef = ref(db, 'projects');
+  const snapshot = await get(projectsRef);
+  if (!snapshot.exists()) return [];
+  const data = snapshot.val();
+  return Object.keys(data).map(key => ({
+    id: key,
+    ...data[key],
+  }));
+};
 
+// 🟢 SAVE (Create or Update) a project
+export const saveProject = async (project: Project): Promise<void> => {
+  const id = project.id || crypto.randomUUID();
+  const projectRef = ref(db, `projects/${id}`);
+  await set(projectRef, { ...project, id });
+};
+
+// 🟢 DELETE a project
+export const deleteProject = async (id: string): Promise<void> => {
+  const projectRef = ref(db, `projects/${id}`);
+  await set(projectRef, null);
+};

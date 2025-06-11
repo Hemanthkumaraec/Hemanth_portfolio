@@ -120,16 +120,27 @@ const AdHero: React.FC = () => {
             </div>
             <div className="ad-hero-profile-fields">
               <label>
-                Profile Image URL:
+                Upload Profile Image:
                 <input
-                  type="text"
-                  name="profileImageUrl"
-                  value={formData.profileImageUrl}
-                  onChange={handleInputChange}
-                  placeholder="Paste image URL"
-                  aria-label="Profile Image URL"
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (!file) return;
+
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                      setFormData(prev => ({
+                        ...prev,
+                        profileImageUrl: reader.result as string,
+                      }));
+                    };
+                    reader.readAsDataURL(file);
+                  }}
+                  aria-label="Upload Profile Image"
                 />
               </label>
+
               <label>
                 Greeting:
                 <input
@@ -153,6 +164,7 @@ const AdHero: React.FC = () => {
                 />
               </label>
             </div>
+
           </div>
         </div>
 

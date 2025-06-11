@@ -3,6 +3,7 @@ import './admindashboard.css';
 import { auth, provider, signInWithPopup, signOut } from '../../store/firebase';
 import AdHero from './admin-pages/adHero';
 import AdAbout from './admin-pages/about/adAbout';
+import AdProjects from './admin-pages/project/adProject';
 
 const ADMIN_EMAIL = "dev.hemanthk@gmail.com";
 
@@ -82,8 +83,7 @@ const AdminDashboard: React.FC = () => {
         )}
         {activeTab === 'projects' && (
           <section>
-            <h3>Manage Projects</h3>
-            <p>Project management UI goes here.</p>
+            <AdProjects />
           </section>
         )}
         {activeTab === 'skills' && (
