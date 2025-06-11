@@ -1,5 +1,6 @@
 .about-page-container {
-
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
   color: #22223b;
   font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
   overflow-x: hidden;
@@ -24,14 +25,13 @@
 }
 
 .about-page-container section {
-  margin-bottom: 3rem;
-  background: #fff;
+  margin-bottom: 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(160,132,238,0.07);
   padding: 2rem 1.5rem;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s, transform 0.8s;
+  
 }
 
 .about-page-container section.animate-in-view {
@@ -80,7 +80,7 @@
 }
 
 .skill-item {
-  background: #f8fafd;
+  /* background: #f8fafd; */
   padding: 1.2rem 1rem;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(79, 140, 255, 0.06);
